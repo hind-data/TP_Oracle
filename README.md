@@ -28,3 +28,22 @@ Projet versionné avec Git.
 
 Commit initial :
 `a3f7adc - Ajout du script ETL Oracle`
+## Installation et configuration de GitHub CLI
+
+### Installation
+
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+
+sudo dnf install gh
+
+Vérification :
+
+gh --version
+
+### Connexion à GitHub
+
+gh auth login
+
+### Vérification
+
+gh auth status
