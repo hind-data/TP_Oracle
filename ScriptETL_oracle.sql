@@ -148,3 +148,24 @@ SELECT COUNT(*) AS lignes_sans_merlu
 FROM DEBARQUEMENTS_POISOONS
 WHERE POIDS_MERLU IS NULL
   AND VALEUR_MERLU IS NULL;
+-- =====================================================
+-- PROCEDURE PL/SQL : contrôle des débarquements
+-- =====================================================
+
+CREATE OR REPLACE PROCEDURE controler_debarquements
+AS
+    v_nombre NUMBER;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_nombre
+    FROM DEBARQUEMENTS_POISOONS;
+
+    DBMS_OUTPUT.PUT_LINE(
+        'Nombre de lignes dans DEBARQUEMENTS_POISOONS : '
+        || v_nombre
+    );
+END;
+/
+
+SET SERVEROUTPUT ON;
+EXEC controler_debarquements;
